@@ -1,11 +1,14 @@
+using ApiColombia.BL;
+using ApiColombia.BL.Interfaces;
 using ApiColombia.DAL.Data;
 using ApiColombia.DAL.Repository;
 using ApiColombia.DAL.Repository.Interfaces;
 using ApiColombia.Entities.DTO;
+using ApiColombia.Middleware;
 using ApiColombia.Services;
 using ApiColombia.Services.Interfaces;
-using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +28,7 @@ builder.Services.AddHttpClient("RegionServiceApi", client =>
 
 builder.Services.AddScoped<IExternalRegionService, ExternalRegionService>();
 builder.Services.AddScoped<IApiColombiaRepository, ApiColombiaRepository>();
+builder.Services.AddScoped<IApiColombiaServices, ApiColombiaServices>();
 
 var app = builder.Build();
 
@@ -34,6 +38,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ApiColombia.Entities.DTO;
+using ApiColombia.Entities.DTO.ExternalServices;
 
 namespace ApiColombia.Services.Interfaces
 {

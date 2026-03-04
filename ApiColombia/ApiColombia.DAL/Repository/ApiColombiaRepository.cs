@@ -1,6 +1,7 @@
 ﻿using ApiColombia.DAL.Data;
 using ApiColombia.DAL.Repository.Interfaces;
 using ApiColombia.Entities.Entities;
+using ApiColombia.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace ApiColombia.DAL.Repository
         public async Task<IEnumerable<Region>> GetAllAsync()
             => await _context.Regions.AsNoTracking().ToListAsync();
 
-        public async Task<Region?> GetByIdAsync(Guid id)
+        public async Task<Region?> GetByIdAsync(int id)
             => await _context.Regions.FindAsync(id);
 
         public async Task AddAsync(Region region)

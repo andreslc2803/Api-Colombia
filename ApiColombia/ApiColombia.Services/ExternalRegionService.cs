@@ -1,6 +1,6 @@
 ﻿using ApiColombia.Services.Interfaces;
-using ApiColombia.Entities.DTO;
 using System.Net.Http.Json;
+using ApiColombia.Entities.DTO.ExternalServices;
 
 namespace ApiColombia.Services
 {

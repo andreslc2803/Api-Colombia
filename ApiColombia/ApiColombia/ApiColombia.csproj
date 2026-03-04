@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ApiColombia.BL\ApiColombia.BL.csproj" />
     <ProjectReference Include="..\ApiColombia.DAL\ApiColombia.DAL.csproj" />
     <ProjectReference Include="..\ApiColombia.Services\ApiColombia.Services.csproj" />
   </ItemGroup>

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace ApiColombia.Entities.DTO
+namespace ApiColombia.Entities.DTO.ExternalServices
 {
     public class ExternalRegionDto
     {

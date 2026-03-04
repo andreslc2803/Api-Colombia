@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiColombia.Entities.Entities
+namespace ApiColombia.Entities.DTO.CRUD
 {
-    public class Region
+    public class CreateRegionDto
     {
-        public int Id { get; set; }
-        public int? ExternalId { get; set; } = null;
         public string Name { get; set; } = string.Empty;
         public string? Description { get; set; }
     }
