@@ -1,3 +1,6 @@
 <Solution>
+  <Project Path="ApiColombia.BL/ApiColombia.BL.csproj" Id="885c4263-c0c7-499c-b6f3-351ab48f7407" />
+  <Project Path="ApiColombia.DAL/ApiColombia.DAL.csproj" Id="cb56bf57-18aa-426d-9b8c-1819ade067a0" />
+  <Project Path="ApiColombia.Entities/ApiColombia.Entities.csproj" Id="23027a2e-bf1a-4460-9f3e-4116956a7bd2" />
   <Project Path="ApiColombia/ApiColombia.csproj" />
 </Solution>
