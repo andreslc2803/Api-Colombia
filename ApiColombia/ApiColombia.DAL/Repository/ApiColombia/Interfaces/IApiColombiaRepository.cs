@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiColombia.DAL.Repository.Interfaces
+namespace ApiColombia.DAL.Repository.ApiColombia.Interfaces
 {
     public interface IApiColombiaRepository
     {

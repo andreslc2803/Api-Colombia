@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApiColombia.BL.Interfaces
+namespace ApiColombia.BL.Services.Interfaces
 {
     public interface IApiColombiaServices
     {

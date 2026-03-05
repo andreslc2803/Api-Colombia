@@ -1,9 +1,9 @@
-﻿using ApiColombia.BL.Interfaces;
-using ApiColombia.BL.Exceptions;
-using ApiColombia.DAL.Repository.Interfaces;
+﻿using ApiColombia.BL.Exceptions;
 using ApiColombia.Entities.DTO.CRUD;
 using ApiColombia.Entities.Entities;
 using ApiColombia.Services.Interfaces;
+using ApiColombia.BL.Services.Interfaces;
+using ApiColombia.DAL.Repository.ApiColombia.Interfaces;
 
 public class ApiColombiaServices : IApiColombiaServices
 {

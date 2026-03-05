@@ -1,4 +1,4 @@
-﻿using ApiColombia.BL.Interfaces;
+﻿using ApiColombia.BL.Services.Interfaces;
 using ApiColombia.Entities.DTO.CRUD;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +7,7 @@ namespace ApiColombia.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // protegido con JWT
+    [Authorize]
     public class RegionsController : ControllerBase
     {
         private readonly IApiColombiaServices _service;
