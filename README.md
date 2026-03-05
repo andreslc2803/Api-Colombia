@@ -54,29 +54,33 @@ dotnet run
 ## Endpoints Principales
 
 Autenticación
-Método      Endpoint            Descripción 
-POST        /api/Auth/login     Recibe credenciales y devuelve el JWT.Cuerpo de la petición (JSON):
+1. Método => POST
+2. Endpoint => /api/Auth/login
+3. Descripción => Recibe credenciales y devuelve el JWT.Cuerpo de la petición (JSON):
 
-{
-  "username": "admin",
-  "password": "123"
-}
+´
+    {
+    "username": "admin",
+    "password": "123"
+    }
+´
 
 ## Gestión de Regiones (Requiere JWT)
 
 Todos los endpoints siguientes requieren el header: Authorization: Bearer {tu_token}.
 
-GET     /api/Regions        Obtiene el listado completo de regiones.
-GET     /api/Regions/{id}   Busca una región específica por su ID.
-POST    /api/Regions        Crea una nueva región.
-PUT     /api/Regions/{id}   Actualiza una región existente.
-DELETE  /api/Regions/{id}   Elimina una región del sistema.
-POST    /api/Regions/sync   Sincroniza datos con la API externa.
+1. GET     /api/Regions        Obtiene el listado completo de regiones.
+2. GET     /api/Regions/{id}   Busca una región específica por su ID.
+3. POST    /api/Regions        Crea una nueva región.
+4. PUT     /api/Regions/{id}   Actualiza una región existente.
+5. DELETE  /api/Regions/{id}   Elimina una región del sistema.
+6. POST    /api/Regions/sync   Sincroniza datos con la API externa.
 
 ## Observaciones Técnicas
 
-Ciclo de Vida: Los servicios y repositorios se inyectan como Scoped para mantener la coherencia con el DbContext.
-Manejo de Errores: Se utiliza un Middleware personalizado que captura excepciones y devuelve un formato de error amigable al cliente.Validaciones: Cada operación CRUD incluye validaciones de integridad de datos antes de impactar la base de datos.
+1. Ciclo de Vida: Los servicios y repositorios se inyectan como Scoped para mantener la coherencia con el DbContext.
+2. Manejo de Errores: Se utiliza un Middleware personalizado que captura excepciones y devuelve un formato de error amigable al cliente
+3. Validaciones: Cada operación CRUD incluye validaciones de integridad de datos antes de impactar la base de datos.
 
 ## Autor
 Desarrollado por Andrés Londoño Carvajal.
