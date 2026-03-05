@@ -21,30 +21,6 @@ appsettings.Development.json
 appsettings.Local.json
 .env
 
-
-#################################################
-# ================= FRONTEND (Angular) =========
-#################################################
-
-# Dependencies
-node_modules/
-
-# Angular build output
-dist/
-.angular/
-out-tsc/
-coverage/
-
-# Cache
-.angular/cache/
-.sass-cache/
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-
 #################################################
 # ================= IDEs =======================
 #################################################

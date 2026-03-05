@@ -22,6 +22,13 @@ namespace ApiColombia.Security
             _jwtSettings = jwtSettings.Value;
         }
 
+        /// <summary>
+        /// Servicio encargado de generar tokens JWT para usuarios autenticados.
+        /// - Implementa ITokenService.
+        /// - Usa la configuración JwtSettings para issuer, audience, clave y duración.
+        /// - Incluye claims básicos: nombre de usuario y JTI (identificador único del token).
+        /// - Retorna el token JWT en formato string listo para usarse en autorizaciones.
+        /// </summary>
         public string GenerateToken(string username)
         {
             var key = new SymmetricSecurityKey(

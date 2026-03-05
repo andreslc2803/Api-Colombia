@@ -5,6 +5,10 @@ using ApiColombia.Services.Interfaces;
 using ApiColombia.BL.Services.Interfaces;
 using ApiColombia.DAL.Repository.ApiColombia.Interfaces;
 
+/// <summary>
+/// Servicio que gestiona la lógica de negocio relacionada con las regiones.
+/// Incluye operaciones CRUD y sincronización con la API externa.
+/// </summary>
 public class ApiColombiaServices : IApiColombiaServices
 {
     private readonly IApiColombiaRepository _repository;
@@ -14,10 +18,14 @@ public class ApiColombiaServices : IApiColombiaServices
         IApiColombiaRepository repository,
         IExternalRegionService externalService)
     {
+        // Validación de dependencias obligatorias
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         _externalService = externalService ?? throw new ArgumentNullException(nameof(externalService));
     }
 
+    /// <summary>
+    /// Obtiene todas las regiones de la base de datos.
+    /// </summary>
     public async Task<IEnumerable<RegionDto>> GetAllAsync(
         CancellationToken cancellationToken = default)
     {
@@ -31,6 +39,11 @@ public class ApiColombiaServices : IApiColombiaServices
         });
     }
 
+    /// <summary>
+    /// Obtiene una región por su Id.
+    /// Lanza <see cref="ValidationException"/> si el Id es inválido.
+    /// Lanza <see cref="NotFoundException"/> si no existe la región.
+    /// </summary>
     public async Task<RegionDto?> GetByIdAsync(
         int id,
         CancellationToken cancellationToken = default)
@@ -51,6 +64,11 @@ public class ApiColombiaServices : IApiColombiaServices
         };
     }
 
+    /// <summary>
+    /// Crea una nueva región en la base de datos.
+    /// Lanza <see cref="ValidationException"/> si los datos son inválidos.
+    /// Lanza <see cref="ConflictException"/> si ya existe una región con el mismo nombre.
+    /// </summary>
     public async Task<int> CreateAsync(
         CreateRegionDto dto,
         CancellationToken cancellationToken = default)
@@ -80,6 +98,11 @@ public class ApiColombiaServices : IApiColombiaServices
         return region.Id;
     }
 
+    /// <summary>
+    /// Actualiza una región existente.
+    /// Lanza <see cref="ValidationException"/> si los datos son inválidos.
+    /// Lanza <see cref="NotFoundException"/> si la región no existe.
+    /// </summary>
     public async Task UpdateAsync(
         int id,
         UpdateRegionDto dto,
@@ -105,6 +128,11 @@ public class ApiColombiaServices : IApiColombiaServices
         await _repository.UpdateAsync(region);
     }
 
+    /// <summary>
+    /// Elimina una región existente.
+    /// Lanza <see cref="ValidationException"/> si el Id es inválido.
+    /// Lanza <see cref="NotFoundException"/> si la región no existe.
+    /// </summary>
     public async Task DeleteAsync(
         int id,
         CancellationToken cancellationToken = default)
@@ -120,6 +148,11 @@ public class ApiColombiaServices : IApiColombiaServices
         await _repository.DeleteAsync(region);
     }
 
+    /// <summary>
+    /// Sincroniza las regiones desde la API externa.
+    /// Actualiza registros existentes o agrega nuevos.
+    /// Evita guardar datos inválidos (sin nombre).
+    /// </summary>
     public async Task SyncFromExternalAsync(
         CancellationToken cancellationToken = default)
     {

@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 
 namespace ApiColombia.DAL.Repository.Auth
 {
+    /// <summary>
+    /// Repositorio encargado de acceder a la información de usuarios para autenticación.
+    /// Permite obtener un usuario por su username y password para validar credenciales.
+    /// </summary>
     public class AuthRepository : IAuthRepository
     {
         private readonly ApiColombiaContext _context;
@@ -19,6 +23,13 @@ namespace ApiColombia.DAL.Repository.Auth
             _context = context;
         }
 
+        /// <summary>
+        /// Obtiene un usuario por username y password.
+        /// Devuelve null si las credenciales no coinciden.
+        /// </summary>
+        /// <param name="username">Nombre de usuario</param>
+        /// <param name="password">Password en hash</param>
+        /// <param name="cancellationToken">Token para cancelar la operación</param>
         public async Task<User?> GetByUsernameAsync(string username, string password, CancellationToken cancellationToken = default)
         {
             return await _context.User

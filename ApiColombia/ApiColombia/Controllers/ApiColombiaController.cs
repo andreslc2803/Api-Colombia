@@ -5,6 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ApiColombia.Api.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar regiones:
+    /// - Operaciones CRUD
+    /// - Sincronización de datos desde la API externa
+    /// - Requiere autenticación mediante JWT.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
@@ -85,7 +91,7 @@ namespace ApiColombia.Api.Controllers
         }
 
         /// <summary>
-        /// Sincronizar desde API externa
+        /// Sincronizar las regiones desde API externa
         /// </summary>
         [HttpPost("sync")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]

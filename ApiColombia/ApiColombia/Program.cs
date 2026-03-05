@@ -66,7 +66,11 @@ builder.Services.AddSwaggerGen(options =>
 
 #endregion
 
+#region EF
+
 builder.Services.AddDbContext<ApiColombiaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+#endregion
 
 # region JWT
 
@@ -123,7 +127,6 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 
 #endregion
 
-
 #region CORS
 
 builder.Services.AddCors(options =>
@@ -138,6 +141,7 @@ builder.Services.AddCors(options =>
 });
 
 #endregion
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

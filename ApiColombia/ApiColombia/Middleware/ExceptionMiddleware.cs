@@ -4,6 +4,12 @@ using System.Text.Json;
 
 namespace ApiColombia.Middleware
 {
+    /// <summary>
+    /// Middleware global para manejo de excepciones.
+    /// - Captura excepciones personalizadas (BaseException) y genera respuestas JSON con el código de estado y mensaje.
+    /// - Captura cualquier otra excepción no controlada y devuelve un error 500.
+    /// - Registra las excepciones en el logger.
+    /// </summary>
     public class ExceptionMiddleware
     {
         private readonly RequestDelegate _next;

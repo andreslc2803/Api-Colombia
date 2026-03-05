@@ -9,6 +9,10 @@ using ApiColombia.Entities.Entities;
 
 namespace ApiColombia.DAL.Data
 {
+    /// <summary>
+    /// Contexto de Entity Framework Core para la base de datos de ApiColombia.
+    /// Define los DbSet para las entidades Region y User y configura sus propiedades mediante Fluent API.
+    /// </summary>
     public class ApiColombiaContext : DbContext
     {
         public DbSet<Region> Region { get; set; }
@@ -19,6 +23,10 @@ namespace ApiColombia.DAL.Data
         {
         }
 
+        /// <summary>
+        /// Configuración de las entidades mediante Fluent API
+        /// Se definen llaves primarias, propiedades requeridas y longitudes máximas
+        /// </summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Region>(entity =>

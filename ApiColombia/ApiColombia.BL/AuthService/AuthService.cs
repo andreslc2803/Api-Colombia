@@ -24,6 +24,12 @@ namespace ApiColombia.BL.AuthService
             _tokenService = tokenService;
         }
 
+        /// <summary>
+        /// Servicio encargado de la autenticación de usuarios.
+        /// - Valida las credenciales contra el repositorio (AuthRepository).
+        /// - Genera un JWT usando ITokenService si las credenciales son correctas.
+        /// - Lanza BusinessException si el usuario no existe o la contraseña es inválida.
+        /// </summary>
         public async Task<string> LoginAsync(string username, string password, CancellationToken cancellationToken = default)
         {
             var user = await _authRepo.GetByUsernameAsync(username, password, cancellationToken);
